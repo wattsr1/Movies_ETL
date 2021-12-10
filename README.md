@@ -6,6 +6,10 @@ The goal of this project is to extract, transform and load a data set of movie d
 
 # Results
 
+## Overview
+
+This project used [code](Resourses/ETL_create_database.ipynb) created in Jupyter Notebook to create functions to clean and transform the data from the raw form as collected from the source.  This code can be used to update dataset in the future or be refactored for future use.  The code uses Pandas and regex expressions to find patterns in the data to standardize the data for future analysis.
+
 ## Extract
 
 Data from Wikipedia and Kaggle was parsed to create a list of movies with data such as budget, revenue, director, and genre to name a few.  Both datasets are not complete but provided a data set that included 45466 rows from Kaggle in a csv file and 7311 Wikipedia entries that were extracted as a json file.  The goal is to merge these files based on the iMDb_id which is unique to each movie and present in each dataset.  Additionally, a csv file containing critic data obtained from Kaggle was downloaded which will be the sources of the ratings data within our database.  The ratings data has a unique Kaggle id which can be connected to the movie data to allow the ratings to be linked to the movie data that was collected.
@@ -24,9 +28,9 @@ Finally, the ratings data was standardized for datetime and grouped by movie id 
 
 The final step for the creation of the movie data set was to load the new dataframe files into a postgreSQL database to for further queries.  The movie_df and ratings.csv files were selected to be imported into the database.  This was complete using the to_sql module in Pandas to import the data into the database created in postgreSQL.  As the ratings data contained over 26 million entries, the data was imported in chunks of 1000000 to manage the memory requirements needed for the import and monitor the progress of the importing of the data. Upon the completion of this the dataframes were successfully loaded into the movie_data database and readably accessible using queries within postgreSQL. Below shows the successfully imported data into the database created for this project.
 
-<img src='Resources/movies_query_png.png' width="800" height="700">
+<img src='Resources/movies_query.png' width="800" height="700">
 
-<img src='Resources/rating_query_png.png' width="800" height="700">
+<img src='Resources/rating_query.png' width="800" height="700">
 
 # Summary
 

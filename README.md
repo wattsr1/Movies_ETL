@@ -8,7 +8,7 @@ The goal of this project is to extract, transform and load a data set of movie d
 
 ## Overview
 
-This project used [code](Resourses/ETL_create_database.ipynb) created in Jupyter Notebook to create functions to clean and transform the data from the raw form as collected from the source.  This code can be used to update dataset in the future or be refactored for future use.  The code uses Pandas and regex expressions to find patterns in the data to standardize the data for future analysis.
+This project used [code](Resources/ETL_create_database.ipynb) created in Jupyter Notebook to create functions to clean and transform the data from the raw form as collected from the source.  This code can be used to update dataset in the future or be refactored for future use.  The code uses Pandas and regex expressions to find patterns in the data to standardize the data for future analysis.
 
 ## Extract
 
